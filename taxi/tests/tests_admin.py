@@ -24,10 +24,7 @@ class AdminTests(TestCase):
         self.author.license_number = "AAA88887"
         self.author.save()
 
-        url = reverse(
-            "admin:taxi_driver_change",
-            args=[self.author.id]
-        )
+        url = reverse("admin:taxi_driver_change")
         res = self.client.get(url)
 
         self.assertEqual(res.status_code, 200)
